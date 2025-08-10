@@ -107,12 +107,11 @@ for x in range(1, int(new_limit.real)): # 10000 = 12; 100000 = 36; 1,000,000 = 1
 amplitude_list_11 = amplitude_list_11[:-100] #remove the last 100 terms (the padding)
 amplitude_list_13 = amplitude_list_13[:-100] #remove the last 100 terms (the padding)
 
-print(amplitude_list_11[-10:])  
-print(amplitude_list_13[-10:])  
+print("Aplitude for last 10 terms in amplitude_list_11:", amplitude_list_11[-10:])  
+print("Aplitude for last 10 terms in amplitude_list_13:", amplitude_list_13[-10:])  
 
 new1 = amplitude_list_11.count(0)
 new1a = amplitude_list_13.count(0)
-
 
 
 print("This is the number of 0 amplitude occurences for 11:", new1)
@@ -125,15 +124,22 @@ alt_composite_address_list_11 = [i for i,x in enumerate(amplitude_list_11) if x 
 prime_address_list_13 = [i for i,x in enumerate(amplitude_list_13) if x == 0]
 alt_composite_address_list_13 = [i for i,x in enumerate(amplitude_list_13) if x > 0]
 
+print("This is the ratio of primes to composites", int(len(prime_address_list_11)) / int(len(prime_address_list_13)) )
 
-print("These are the last 10 addresses", prime_address_list_11[-10:])
-print("This is the number of zeroes:", len(prime_address_list_11))
-print("This is another way of determining the quantity of zeroes:", new1)
+print("This is the total amplitude for amplitude_list_11:", sum(amplitude_list_11))
+print("This is the total amplitude for amplitude_list_13:", sum(amplitude_list_13))
 
-print("These are the last 10 addresses", prime_address_list_13[-10:])
-print("This is the number of zeroes:", len(prime_address_list_13))
-print("This is another way of determining the quantity of zeroes:", new1a)
 
+print("These are the last 10 addresses for 11", prime_address_list_11[-10:])
+print("This is the number of zeroes for 11:", len(prime_address_list_11))
+print("This is another way of determining the quantity of zeroes for 11:", new1)
+
+print("These are the last 10 addresses for 13", prime_address_list_13[-10:])
+print("This is the number of zeroes for 13:", len(prime_address_list_13))
+print("This is another way of determining the quantity of zeroes for 13:", new1a)
+
+print("This is the ratio of amplitude to total primes for 11", sum(amplitude_list_11) / new1)
+print("This is the ratio of amplitude to total composites for 11", sum(amplitude_list_11) / len(alt_composite_address_list_11) )
 
 
 list1 = [x for x in prime_address_list_11 if x%9==1]
@@ -156,7 +162,7 @@ print("this is DR 7", len(list7))
 print("this is DR 8", len(list8))
 print("this is DR 9", len(list9))
 """
-###########################```REDUCED COMPSITE DATASET```############################################
+###########################```REDUCED COMPOSITE DATASET```############################################
 #build negated list from two combines lists
 list_a = prime_address_list_11
 composite_address_list_11 = alt_composite_address_list_11
